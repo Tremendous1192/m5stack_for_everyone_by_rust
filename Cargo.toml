@@ -1,0 +1,30 @@
+[package]
+name = "m5stack_for_everyone_by_rust"
+version = "0.0.0"
+authors = ["Tremendous1192"]
+edition = "2021"
+description = "Rewrite M5Stack for everyone by no_std Rust"
+readme = "README.md"
+repository = "https://github.com/Tremendous1192/M5Stack4everyone_by_rust"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+esp32-hal= "0.14.0" # ESP32マイコンのHAL
+esp-backtrace = { version = "0.7.0", features = ["esp32", "panic-handler", "exception-handler", "print-uart"] } # panic
+esp-println = { version = "0.5.0", features = ["esp32"] } # printマクロ
+esp-alloc = { version = "0.3.0" } # ヒープ
+
+display-interface-spi = "0.4" # 入出力
+mipidsi = "0.6" # ILI9342Cディスプレイ
+embedded-graphics = "0.7.1" # 描画
+
+heapless = "0.7.16"
+
+tinybmp = "0.4.0" # 画像
+
+
+[profile.dev]
+opt-level = "s"
+
+[profile.release]
+opt-level = "z"
